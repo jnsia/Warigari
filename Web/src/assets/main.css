@@ -1,0 +1,113 @@
+html,
+body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
+}
+
+.main-back-ground {
+  background-color: #0e3246;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.disable-btn {
+  width: 160px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+
+  background: #0e1124;
+  border: none;
+  font-size: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.btn {
+  width: 160px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+
+  background: #00082e;
+  border: none;
+  font-size: 14px;
+  z-index: 1;
+  cursor: pointer;
+}
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #48679c;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:hover:after {
+  left: 0;
+  width: 100%;
+}
+.btn:active {
+  top: 2px;
+}
+
+h1 {
+  margin: 0px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}

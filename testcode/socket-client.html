@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ROS WebSocket Example</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/roslibjs/1.1.0/roslib.js"
+      integrity="sha512-pCcZE7tYxCroXRw6OsC4hnCKF+cYszKf2I4++0xASgb4wm7rgf8tY65tmmgnvb9zxWQt1JeOE/lKPTdp9FLoCw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <h1>ROS 2 WebSocket Publisher</h1>
+    <script type="text/javascript">
+      var ros = new ROSLIB.Ros({
+        url: "ws://192.168.100.215:9090",
+      });
+
+      ros.on("connection", function () {
+        console.log("Connected to websocket server.");
+      });
+
+      ros.on("error", function (error) {
+        console.log("Error connecting to websocket server: ", error);
+      });
+
+      ros.on("close", function () {
+        console.log("Connection to websocket server closed.");
+      });
+
+      // Publishing a Topic
+      var myTopic = new ROSLIB.Topic({
+        ros: ros,
+        name: "/my_topic",
+        messageType: "std_msgs/String",
+      });
+
+      var message = new ROSLIB.Message({
+        data: "Hello ROS 2 from WebSocket!",
+      });
+
+      myTopic.publish(message);
+
+      var listener = new ROSLIB.Topic({
+        ros: ros,
+        name: "/camera/image",
+        messageType: "sensor_msgs/Image",
+      });
+
+      listener.subscribe(function (message) {
+        var src = "data:image/jpeg;base64," + message.data;
+        img.src = src;
+      });
+
+      console.log("Sent message: Hello ROS 2 from WebSocket!");
+    </script>
+  </body>
+</html>
